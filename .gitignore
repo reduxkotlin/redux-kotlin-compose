@@ -1,0 +1,8 @@
+out/
+build/
+.gradle/
+.idea/
+.vscode/
+.fleet/
+*.log
+lint.xml
