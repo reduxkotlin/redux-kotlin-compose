@@ -1,0 +1,10 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:org.reduxkotlin.compose////PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/index.html
+$dokka.location:org.reduxkotlin.compose//StoreProvider/#org.reduxkotlin.Store[TypeParam(bounds=[kotlin.Any])]#kotlin.Function1[org.reduxkotlin.Store[TypeParam(bounds=[kotlin.Any])],kotlin.Unit]/PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/-store-provider.html
+$dokka.location:org.reduxkotlin.compose//rememberDispatcher/#/PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/remember-dispatcher.html
+$dokka.location:org.reduxkotlin.compose//rememberStore/#/PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/remember-store.html
+$dokka.location:org.reduxkotlin.compose//selectState/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/select-state.html
+$dokka.location:org.reduxkotlin.compose//selectState/org.reduxkotlin.Store[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/redux-kotlin-compose/org.reduxkotlin.compose/select-state.html
+org.reduxkotlin.compose
+
