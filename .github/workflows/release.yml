@@ -65,7 +65,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle-
 
       - name: Gradle Assemble Dokka
-        run: ./gradlew dokkaHtmlMultiModule -Pversion=${VERSION//v} --scan
+        run: ./gradlew dokkaHtml -Pversion=${VERSION//v} --scan
 
       - uses: actions/upload-artifact@v3
         with:
@@ -84,11 +84,11 @@ jobs:
       VERSION: ${{ needs.resolve-version.outputs.version }}
       GH_USERNAME: ${{ github.actor }}
       GH_PASSWORD: ${{ github.token }}
-      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
-      ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.SIGNING_KEY_ID }}
-      ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
-      ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
-      ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
+      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_SECRET }}
+      ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.GPG_SIGNING_KEY_ID }}
+      ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_SIGNING_PASSWORD }}
+      ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+      ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
     strategy:
       matrix:
         repository:
@@ -161,7 +161,7 @@ jobs:
         run: |
           REPO_NAME=${{ github.repository }}
           REPO_NAME=${REPO_NAME#${{ github.repository_owner }}/}
-          cp -avr build/dokka/htmlMultiModule/ public;
+          cp -avr build/dokka/html/ public;
           find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
           echo "/${REPO_NAME} /${REPO_NAME}/${REPO_NAME}/index.html 301" > public/_redirects;
           echo "/${REPO_NAME}/index.html /${REPO_NAME}/${REPO_NAME}/index.html 301" >> public/_redirects;
