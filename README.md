@@ -2,9 +2,9 @@
 ![badge][badge-android]
 ![badge][badge-js]
 ![badge][badge-jvm]
-[![Slack chat](https://img.shields.io/badge/kotlinlang-%23redux-green?logo=slack&style=flat-square)](https://kotlinlang.slack.com/team/C8A8G5F9Q)
+[![Slack chat](https://img.shields.io/badge/kotlinlang-%23redux-green?logo=slack&style=flat-square)](https://kotlinlang.slack.com/archives/C8A8G5F9Q)
 [![Dokka docs](https://img.shields.io/badge/docs-dokka-orange?style=flat-square&logo=kotlin)](http://reduxkotlin.github.io/redux-kotlin-compose)
-[![Version maven-central](https://img.shields.io/maven-central/v/dev.petuska/kon?logo=apache-maven&style=flat-square)](https://mvnrepository.com/artifact/org.reduxkotlin/redux-kotlin-compose/latest)
+[![Version maven-central](https://img.shields.io/maven-central/v/org.reduxkotlin/redux-kotlin-compose?logo=apache-maven&style=flat-square)](https://mvnrepository.com/artifact/org.reduxkotlin/redux-kotlin-compose/latest)
 
 # Redux-Kotlin-Compose
 
