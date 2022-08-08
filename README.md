@@ -1,7 +1,10 @@
-![Test](https://github.com/reduxkotlin/redux-kotlin-compose/workflows/Test/badge.svg)
+[![Check](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/check.yml/badge.svg)](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/check.yml)
 ![badge][badge-android]
 ![badge][badge-js]
 ![badge][badge-jvm]
+[![Slack chat](https://img.shields.io/badge/kotlinlang-%23redux-green?logo=slack&style=flat-square)](https://kotlinlang.slack.com/team/C8A8G5F9Q)
+[![Dokka docs](https://img.shields.io/badge/docs-dokka-orange?style=flat-square&logo=kotlin)](http://reduxkotlin.github.io/redux-kotlin-compose)
+[![Version maven-central](https://img.shields.io/maven-central/v/dev.petuska/kon?logo=apache-maven&style=flat-square)](https://mvnrepository.com/artifact/org.reduxkotlin/redux-kotlin-compose/latest)
 
 # Redux-Kotlin-Compose
 
@@ -70,11 +73,11 @@ fun Component() {
 
 ```
 
-[badge-android]: http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat
+[badge-android]: http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat-square
 
-[badge-js]: http://img.shields.io/badge/platform-js-yellow.svg?style=flat
+[badge-js]: http://img.shields.io/badge/platform-js-yellow.svg?style=flat-square
 
-[badge-jvm]: http://img.shields.io/badge/platform-jvm-orange.svg?style=flat
+[badge-jvm]: http://img.shields.io/badge/platform-jvm-orange.svg?style=flat-square
 
 [Compose Multiplatform]: https://github.com/JetBrains/compose-jb
 
