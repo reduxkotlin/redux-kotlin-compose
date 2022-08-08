@@ -51,4 +51,4 @@ jobs:
         uses: devops-infra/action-commit-push@v0.9.0
         with:
           github_token: ${{ github.token }}
-          commit_message: [ci skip] New SNAPSHOT - ${{ env.SNAPSHOT_VERSION }}
+          commit_message: '[ci skip] New SNAPSHOT - ${{ env.SNAPSHOT_VERSION }}'
