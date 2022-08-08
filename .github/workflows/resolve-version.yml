@@ -28,6 +28,7 @@ jobs:
           gradle_version=$(cat gradle.properties | grep -Po '^version=\K(.+)')
           version=${VERSION:=gradle_version}
           VERSION=${VERSION/v}
+          echo "GRADLE_VERSION=${GRADLE_VERSION}" >> $GITHUB_ENV
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "::set-output name=version::${VERSION}"
           if [[ "$VERSION" != "$gradle_version" ]]; then
@@ -47,7 +48,7 @@ jobs:
           echo "SNAPSHOT_VERSION=$SNAPSHOT_VERSION" >> $GITHUB_ENV
           sed -Ei "s|^(version=).*\$|\\1$SNAPSHOT_VERSION|" gradle.properties
       - name: Commit and push SNAPSHOT
-        if: env.DIFF_VERSION == '1'
+        if: env.DIFF_VERSION == '1' && env.GRADLE_VERSION != env.SNAPSHOT_VERSION
         uses: devops-infra/action-commit-push@v0.9.0
         with:
           github_token: ${{ github.token }}
