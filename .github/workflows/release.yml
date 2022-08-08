@@ -30,6 +30,7 @@ jobs:
 
   resolve-version:
     uses: ./.github/workflows/resolve-version.yml
+    needs: [ check ]
     with:
       desired-version: ${{ github.event.release.tag_name || github.event.inputs.version }}
 
