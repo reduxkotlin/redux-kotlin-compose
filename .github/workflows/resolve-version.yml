@@ -26,7 +26,7 @@ jobs:
         id: resolve
         run: |
           gradle_version=$(cat gradle.properties | grep -Po '^version=\K(.+)')
-          version=${VERSION:=gradle_version}
+          version=${VERSION:=$gradle_version}
           VERSION=${VERSION/v}
           echo "GRADLE_VERSION=${GRADLE_VERSION}" >> $GITHUB_ENV
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
