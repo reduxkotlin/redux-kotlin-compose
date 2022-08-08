@@ -31,7 +31,7 @@ jobs:
   resolve-version:
     uses: ./.github/workflows/resolve-version.yml
     with:
-      desired-version: ${{ github.event.release.tag_name | github.event.inputs.version }}
+      desired-version: ${{ github.event.release.tag_name || github.event.inputs.version }}
 
   build:
     name: Build Dokka
