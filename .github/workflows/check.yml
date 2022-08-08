@@ -1,9 +1,12 @@
 name: Check
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
-      - 'master'
+      - master
   workflow_dispatch:
   workflow_call:
 
