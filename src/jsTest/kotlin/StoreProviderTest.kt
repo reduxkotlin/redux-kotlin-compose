@@ -2,7 +2,6 @@ package org.reduxkotlin.compose
 
 import androidx.compose.runtime.getValue
 import org.jetbrains.compose.web.dom.Button
-import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
