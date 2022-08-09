@@ -41,3 +41,13 @@ tasks {
     }
   }
 }
+
+kotlin {
+  sourceSets {
+    all {
+      languageSettings {
+        optIn("org.jetbrains.compose.ExperimentalComposeLibrary")
+      }
+    }
+  }
+}

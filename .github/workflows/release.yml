@@ -149,7 +149,7 @@ jobs:
   release-Dokka:
     runs-on: ubuntu-latest
     needs: [ build, resolve-version ]
-    if: ${{ github.event.inputs.skipPages != 'y' }}
+    if: ${{ github.event.inputs.skipPages != 'y' && needs.resolve-version.outputs.snapshot == 'false' }}
     env:
       VERSION: ${{ needs.resolve-version.outputs.version }}
     steps:

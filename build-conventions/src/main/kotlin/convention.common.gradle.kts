@@ -33,7 +33,7 @@ idea {
 
 tasks {
   withType<Test> {
-    useJUnitPlatform()
+//    useJUnitPlatform()
   }
 }
 

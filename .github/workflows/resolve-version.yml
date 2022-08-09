@@ -10,6 +10,8 @@ on:
     outputs:
       version:
         value: ${{ jobs.resolve.outputs.version }}
+      snapshot:
+        value: ${{ jobs.resolve.outputs.version }}
 
 concurrency:
   cancel-in-progress: true
@@ -23,6 +25,7 @@ jobs:
       VERSION: ${{ inputs.desired-version }}
     outputs:
       version: ${{ steps.resolve.outputs.version }}
+      snapshot: ${{ steps.resolve.outputs.snapshot }}
     steps:
       - uses: actions/checkout@v3
       - name: Resolve
@@ -36,6 +39,11 @@ jobs:
           echo "::set-output name=version::${VERSION}"
           if [[ "$VERSION" != "$gradle_version" ]]; then
             echo "DIFF_VERSION=1" >> $GITHUB_ENV
+          fi
+          if [[ "$VERSION" == *-SNAPSHOT ]]; then
+            echo "::set-output name=snapshot::true"
+          else
+            echo "::set-output name=snapshot::false"
           fi
       - name: Report
         run: |

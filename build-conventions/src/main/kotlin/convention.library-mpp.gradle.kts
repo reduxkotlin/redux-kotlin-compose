@@ -28,12 +28,12 @@ kotlin {
     }
     named("jvmTest") {
       dependencies {
-        implementation(kotlin("test-junit5"))
+        implementation(kotlin("test-junit"))
       }
     }
     withName("androidTest") {
       dependencies {
-        implementation(kotlin("test-junit5"))
+        implementation(kotlin("test-junit"))
       }
     }
     all {
