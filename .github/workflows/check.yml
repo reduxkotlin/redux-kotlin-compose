@@ -28,15 +28,15 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - runner: macos-latest
-            shell: bash
-            separator: '/'
+#          - runner: macos-latest
+#            shell: bash
+#            separator: '/'
           - runner: ubuntu-latest
             shell: bash
             separator: '/'
-          - runner: windows-latest
-            shell: msys2 {0}
-            separator: '\'
+#          - runner: windows-latest
+#            shell: msys2 {0}
+#            separator: '\'
     steps:
       - uses: msys2/setup-msys2@v2
         if: ${{ runner.os == 'Windows' }}

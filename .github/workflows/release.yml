@@ -105,10 +105,10 @@ jobs:
             tasks: publishToSonatype closeAndReleaseSonatypeStagingRepository
             enabled: ${{ github.event.inputs.skipMavenCentral != 'y' }}
         os:
-          - runner: macos-latest
-            shell: bash
-          - runner: windows-latest
-            shell: msys2 {0}
+#          - runner: macos-latest
+#            shell: bash
+#          - runner: windows-latest
+#            shell: msys2 {0}
           - runner: ubuntu-latest
             shell: bash
     steps:
