@@ -39,7 +39,9 @@ jobs:
 
   build:
     name: Build Dokka
-    needs: [ check, resolve-version ]
+    needs: 
+#       - check
+      - resolve-version
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.resolve-version.outputs.version }}
@@ -76,7 +78,9 @@ jobs:
   release-Artefacts:
     name: Release to ${{ matrix.repository.name }} on ${{ matrix.os.runner }}
     runs-on: ${{ matrix.os.runner }}
-    needs: [ check, resolve-version ]
+    needs: 
+#       - check
+      - resolve-version
     defaults:
       run:
         shell: ${{ matrix.os.shell }}
