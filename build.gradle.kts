@@ -19,5 +19,10 @@ kotlin {
         api("org.reduxkotlin:redux-kotlin:_")
       }
     }
+    named("commonTest") {
+      dependencies {
+        api("org.jetbrains.kotlinx:kotlinx-coroutines-test:_")
+      }
+    }
   }
 }
