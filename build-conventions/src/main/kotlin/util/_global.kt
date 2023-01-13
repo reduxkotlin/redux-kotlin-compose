@@ -31,5 +31,5 @@ val Project.isMainHost: Boolean
   get() = HostManager.simpleOsName().equals("${properties["project.mainOS"]}", true)
 
 fun printlnCI(text: Any?) {
-  if (CI) println(text)
+  if (CI) println("[CI]: $text")
 }

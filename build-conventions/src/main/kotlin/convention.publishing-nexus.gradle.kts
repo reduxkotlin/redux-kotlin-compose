@@ -8,8 +8,13 @@ nexusPublishing {
     sonatype {
       nexusUrl by uri("https://s01.oss.sonatype.org/service/local/")
       snapshotRepositoryUrl by uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-      println("MPE: sonatypeUsername: ${findProperty("sonatypeUsername")?.let {"EXISTS"}}")
-      println("MPE: sonatypePassword: ${findProperty("sonatypePassword")?.let {"EXISTS"}}")
+      val checkProp = { pName: String ->
+        val exists = findProperty("sonatypeUsername")?.toString()?.takeIf(String::isNotBlank)
+          ?.let { "EXISTS" } ?: "MISSING"
+        printlnCI("$pName: $exists")
+      }
+      checkProp("sonatypeUsername")
+      checkProp("sonatypePassword")
     }
   }
 }
