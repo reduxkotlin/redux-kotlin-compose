@@ -6,8 +6,8 @@ plugins {
 nexusPublishing {
   repositories {
     sonatype {
-      nexusUrl by uri("https://s01.oss.sonatype.org/service/local/")
-      snapshotRepositoryUrl by uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+      nexusUrl by uri("https://oss.sonatype.org/service/local/")
+      snapshotRepositoryUrl by uri("https://oss.sonatype.org/content/repositories/snapshots/")
       val checkProp = { pName: String ->
         val exists = findProperty("sonatypeUsername")?.toString()?.takeIf(String::isNotBlank)
           ?.let { "EXISTS" } ?: "MISSING"
