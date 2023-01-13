@@ -12,6 +12,10 @@ gradleEnterprise {
   }
 }
 
+android {
+  namespace = "org.reduxkotlin.compose"
+}
+
 kotlin {
   sourceSets {
     named("commonMain") {

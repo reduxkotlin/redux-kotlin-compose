@@ -34,7 +34,9 @@ fun control(targets: NamedDomainObjectCollection<KotlinTarget>) {
         }
       }
       compilations.all {
-        compileKotlinTask.onlyIf(enabled)
+        compileTaskProvider {
+          onlyIf(enabled)
+        }
       }
     }
   }

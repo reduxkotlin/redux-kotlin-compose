@@ -24,7 +24,7 @@ kotlin {
         implementation(compose.uiTestJUnit4)
       }
     }
-    named("androidTest") {
+    named("androidUnitTest") {
       dependencies {
 //        implementation("androidx.compose.material:material:_")
 //        implementation("androidx.compose.ui:ui-test-junit4:_")
