@@ -1,5 +1,4 @@
-[![Check](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/check.yml/badge.svg)](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/check.yml)
-![badge][badge-android]
+[![Release](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/release.yml/badge.svg)](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/release.yml)![badge][badge-android]
 ![badge][badge-js]
 ![badge][badge-jvm]
 [![Slack chat](https://img.shields.io/badge/kotlinlang-%23redux-green?logo=slack&style=flat-square)](https://kotlinlang.slack.com/archives/C8A8G5F9Q)
