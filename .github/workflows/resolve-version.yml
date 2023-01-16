@@ -31,13 +31,13 @@ jobs:
       - name: Resolve
         id: resolve
         run: |
-          gradle_version=$(cat gradle.properties | grep -Po '^version=\K(.+)')
-          version=${VERSION:=$gradle_version}
+          project_version=$(cat gradle.properties | grep -Po '^version=\K(.+)')
+          version=${VERSION:=$project_version}
           VERSION=${VERSION/v}
-          echo "GRADLE_VERSION=${GRADLE_VERSION}" >> $GITHUB_ENV
+          echo "PROJECT_VERSION=${project_version}" >> $GITHUB_ENV
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "::set-output name=version::${VERSION}"
-          if [[ "$VERSION" != "$gradle_version" ]]; then
+          if [[ "$VERSION" != "$project_version" ]]; then
             echo "DIFF_VERSION=1" >> $GITHUB_ENV
           fi
           if [[ "$VERSION" == *-SNAPSHOT ]]; then
@@ -59,9 +59,9 @@ jobs:
           echo "SNAPSHOT_VERSION=$SNAPSHOT_VERSION" >> $GITHUB_ENV
           sed -Ei "s|^(version=).*\$|\\1$SNAPSHOT_VERSION|" gradle.properties
       - name: Commit and push SNAPSHOT
-        if: env.DIFF_VERSION == '1' && env.GRADLE_VERSION != env.SNAPSHOT_VERSION
+        if: env.DIFF_VERSION == '1' && env.PROJECT_VERSION != env.SNAPSHOT_VERSION
         uses: devops-infra/action-commit-push@v0.9.2
         with:
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.GH_TOKEN || github.token }}
           commit_message: '[ci skip] New SNAPSHOT - ${{ env.SNAPSHOT_VERSION }}'
           target_branch: master
