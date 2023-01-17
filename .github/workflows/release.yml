@@ -2,6 +2,8 @@ name: Release
 
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
     branches:
       - master
   workflow_dispatch:
@@ -27,6 +29,10 @@ on:
 env:
   GRADLE_OPTS: "-Dorg.gradle.daemon=true"
 
+concurrency:
+  cancel-in-progress: false
+  group: release-${{ github.workflow }}-${{ github.head_ref || github.ref }}
+
 jobs:
   check:
     uses: ./.github/workflows/check.yml
@@ -39,7 +45,7 @@ jobs:
 
   build-dokka:
     name: Build Dokka
-    needs: 
+    needs:
       - check
       - resolve-version
     runs-on: ubuntu-latest
@@ -67,7 +73,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle-
 
       - name: Gradle Assemble Dokka
-        run: ./gradlew dokkaHtml -Pversion=${VERSION//v} --scan
+        run: ./gradlew dokkaHtmlMultiModule -Pversion=${VERSION//v} --scan
 
       - uses: actions/upload-artifact@v3
         with:
@@ -78,7 +84,7 @@ jobs:
   release-Artefacts:
     name: Release to ${{ matrix.repository.name }} on ${{ matrix.os.runner }}
     runs-on: ${{ matrix.os.runner }}
-    needs: 
+    needs:
       - check
       - resolve-version
     defaults:
@@ -105,12 +111,12 @@ jobs:
             tasks: publishToSonatype closeAndReleaseSonatypeStagingRepository
             enabled: ${{ github.event.inputs.skipMavenCentral != 'y' }}
         os:
+          - runner: ubuntu-latest
+            shell: bash
 #          - runner: macos-latest
 #            shell: bash
 #          - runner: windows-latest
 #            shell: msys2 {0}
-          - runner: ubuntu-latest
-            shell: bash
     steps:
       - uses: msys2/setup-msys2@v2
         if: ${{ matrix.repository.enabled == true && runner.os == 'Windows' }}
@@ -167,7 +173,7 @@ jobs:
         run: |
           REPO_NAME=${{ github.repository }}
           REPO_NAME=${REPO_NAME#${{ github.repository_owner }}/}
-          cp -avr build/dokka/html/ public;
+          cp -avr build/dokka/htmlMultiModule/ public;
           find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
           echo "/${REPO_NAME} /${REPO_NAME}/${REPO_NAME}/index.html 301" > public/_redirects;
           echo "/${REPO_NAME}/index.html /${REPO_NAME}/${REPO_NAME}/index.html 301" >> public/_redirects;

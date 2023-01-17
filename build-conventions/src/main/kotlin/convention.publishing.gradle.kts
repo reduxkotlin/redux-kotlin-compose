@@ -38,6 +38,10 @@ tasks {
   named("clean") {
     dependsOn(cleanMavenLocal)
   }
+  register("publishToLocal") {
+    description = "Publishes all packages to local maven repository at rootDir/build/localMaven"
+    dependsOn("publishAllPublicationsToLocalRepository")
+  }
 }
 
 signing {
@@ -64,6 +68,9 @@ publishing {
           username = System.getenv("GH_USERNAME")
           password = System.getenv("GH_PASSWORD")
         }
+      }
+      maven("file://${rootProject.buildDir}/localMaven") {
+        name = "Local"
       }
     }
     withType<MavenPublication> {
