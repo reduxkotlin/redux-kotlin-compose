@@ -1,4 +1,4 @@
 plugins {
-  id("convention.common")
-  id("org.jetbrains.compose")
+    id("convention.common")
+    id("org.jetbrains.compose")
 }
