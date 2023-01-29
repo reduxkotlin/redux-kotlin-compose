@@ -12,15 +12,25 @@ comments:
     active: false
   DeprecatedBlockTag:
     active: true
+    excludes: [ "**/src/*Test/**", "**/examples/**", "**/build-conventions/**" ]
+    ignoreAnnotated: [ kotlin.Deprecated ]
   OutdatedDocumentation:
-    active: false
+    active: true
+    excludes: [ "**/src/*Test/**", "**/examples/**", "**/build-conventions/**" ]
+    ignoreAnnotated: [ kotlin.Deprecated, androidx.compose.runtime.Composable ]
     allowParamOnConstructorProperties: false
-#  UndocumentedPublicClass:
-#    active: true
-#  UndocumentedPublicFunction:
-#    active: true
-#  UndocumentedPublicProperty:
-#    active: true
+  UndocumentedPublicClass:
+    active: true
+    excludes: [ "**/src/*Test/**", "**/examples/**", "**/build-conventions/**" ]
+    ignoreAnnotated: [ kotlin.Deprecated ]
+  UndocumentedPublicFunction:
+    active: true
+    excludes: [ "**/src/*Test/**", "**/examples/**", "**/build-conventions/**" ]
+    ignoreAnnotated: [ kotlin.Deprecated ]
+  UndocumentedPublicProperty:
+    active: true
+    ignoreAnnotated: [ kotlin.Deprecated ]
+    excludes: [ "**/src/*Test/**", "**/examples/**", "**/build-conventions/**" ]
 
 naming:
   InvalidPackageDeclaration:
@@ -29,8 +39,13 @@ naming:
     active: false
   TopLevelPropertyNaming:
     constantPattern: '[A-Z][_a-zA-Z0-9]*'
+  FunctionNaming:
+    ignoreAnnotated:
+      - androidx.compose.runtime.Composable
 
 style:
+  ForbiddenComment:
+    active: false
   WildcardImport:
     active: false
   UnnecessaryAbstractClass:
@@ -46,4 +61,6 @@ formatting:
   NoWildcardImports:
     active: false
   Indentation:
-    indentSize: 2
+    indentSize: 4
+  FinalNewline:
+    active: true
