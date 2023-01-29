@@ -6,3 +6,4 @@ build/
 .fleet/
 *.log
 lint.xml
+local.properties
