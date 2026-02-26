@@ -75,7 +75,7 @@ jobs:
       - name: Gradle Assemble Dokka
         run: ./gradlew dokkaHtml -Pversion=${VERSION//v} --scan
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v7
         with:
           name: dokka
           path: |
@@ -166,7 +166,7 @@ jobs:
     env:
       VERSION: ${{ needs.resolve-version.outputs.version }}
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v8
         with:
           name: dokka
 
