@@ -1,3 +1,5 @@
+> ⚠️ **This repository is archived.** Compose Multiplatform integration moved into the [redux-kotlin monorepo](https://github.com/reduxkotlin/redux-kotlin) as the `redux-kotlin-compose` module. Artifacts continue to be published under the same coordinates `org.reduxkotlin:redux-kotlin-compose`.
+
 [![Release](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/release.yml/badge.svg)](https://github.com/reduxkotlin/redux-kotlin-compose/actions/workflows/release.yml)![badge][badge-android]
 ![badge][badge-js]
 ![badge][badge-jvm]
